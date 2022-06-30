@@ -1,0 +1,78 @@
+.explore{
+    background-color:black;
+ padding: 40px;
+}
+.header{
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+}
+.header ul{
+    display: flex;
+    margin-left: 200px;
+    list-style: none;
+    margin-bottom: 20px;
+}
+.header ul li{
+    padding: 20px;
+}
+
+.header ul li:hover{
+ background-color: white;
+ color: black;
+ cursor: pointer;
+}
+.explore-heading{
+    margin-left: 40px;
+    text-decoration: underline;
+}
+table{
+    border-style:none ;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 200px;
+    border-radius: 20px;
+    background-color: rgba(6, 24, 79, 0.847);
+    color: white;
+}
+td{
+    margin: 20px;
+    padding: 20px;
+    width: 320px;
+    text-align: center;
+    border-color: azure;
+}
+.heading{
+    margin-top: 20px;
+    margin-left: 400px;
+    color: black;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.submit{
+    width: 500px;
+    padding: 5px;
+    margin-left: 30px;
+    border-radius: 13px;
+}
+.submit:hover{
+    color: white;
+    background-color: black;
+}
+.make-requests{
+    background-color: black;
+    margin-top: 20px;
+    padding: 30px;
+    margin-bottom: 80px;
+}
+.request-submit{
+    padding-left: 100px;
+    padding-right: 100px;
+    color: white;
+    background-color: black;
+    border-radius:20px ;
+}
+.request-submit:hover{
+    color:black;
+ background-color: white;
+}

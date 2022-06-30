@@ -1,0 +1,14 @@
+table{
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-left: 60px;
+    }
+    thead{
+        color: white;
+        background-color: rgb(8, 8, 103);
+        
+    }
+    td{
+        width: 300px;
+        text-align: center;
+    }

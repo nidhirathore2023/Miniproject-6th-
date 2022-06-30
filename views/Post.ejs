@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/Home.css">
+    <link rel="stylesheet" href="../assets/Post.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+       
+</head>
+
+<body>
+    <div class="pos-f-t" style="position:sticky ;top:0cm;z-index: 92002;">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">E-Shram Portal</h5>
+                <span class="text-muted">One Step towards Employment</span>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+    <div class="header">
+        <h2 class="explore-heading" style="padding:10px ;">Posts</h2>
+    </div>
+    <div class="explore">
+        <% data.forEach(function(data){  %>
+        <div class="comments-head">
+            
+            <div class="comments">
+                 <table>
+                    <tr ><td id="email"><%-data.email%></td></tr>
+                    <tr><td id="comment"><%-data.comment%></td></tr>
+                    <tr><td id="time"><%-data.timestamp%></td></tr>
+                 </table>
+            </div>
+            
+        </div>
+        <%  });%>
+        <div class="post">
+            <form method="get" action="/Post-res">
+                <textarea  id="textarea"rows="2" name="post_content" cols="150" placeholder=" Write a post"></textarea>
+        <button class="butn" onpointerenter="voice()">Speak</button>
+        <input type="submit"  class="butn" value="Post">
+            </form>
+        
+    </div>
+    </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <script>
+          function voice()
+          {
+            var text= new webkitSpeechRecognition();
+            text.lang="en-GB";
+            text.onresult=function(event)
+            {
+                console.log(event);
+                document.getElementById("textarea").value+=event.results[0][0].transcript;
+            }
+            text.start();
+          }
+         
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../assets/Home.css">
+  <link rel="stylesheet" href="../assets/Explore.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="pos-f-t" style="position:sticky ;top:0cm;z-index: 92002;">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        <h5 class="text-white h4">E-Shram Portal</h5>
+        <span class="text-muted">One Step towards Employment</span>
+
+      </div>
+
+    </div>
+
+    <nav class="navbar navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+        aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    </nav>
+
+  </div>
+
+  <div class="header">
+    <h2 class="explore-heading">Explore </h2>
+    <ul>
+      <li><a class="list-item" href="/Explore">Make Requests</a></li>
+      <li><a class="list-item" href="/Search">Search For Records</a></li>
+      <li><a class="list-item" href="/history">Request History</a></li>
+
+    </ul>
+  </div>
+
+  <h3 id="p1" style="margin-top:30px;margin-left: 400px; color:black;font-weight: bolder;">Make-Requests-</h3>
+  <div class="make-requests">
+
+    <form action="/Successfully_Send" method="get">
+      <table>
+        <tr>
+          <td>
+            <h5>Number Of Workers</h5>
+          </td>
+          <td><input name="number_workers" type="number"></td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Minimum_Wage</h5>
+          </td>
+          <td><input name="Minimum_wage" type="number"></td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Location</h5>
+          </td>
+          <td><select name="location">
+              <option>--Select--</option>
+              <option>Uttarakhand</option>
+              <option>Uttar_Pradesh</option>
+              <option>Bihar</option>
+            </select></td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Skills</h5>
+          </td>
+          <td><select name="skills">
+              <option>---Select--</option>
+              <option>Construction Worker</option>
+              <option>Skilled</option>
+              <option>Semi-Skilled</option>
+            </select></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="submit" class="request-submit" value="Send Requests"></td>
+        </tr>
+      </table>
+    </form>
+
+  </div>
+
+</body>
+
+</html>

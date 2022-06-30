@@ -1,0 +1,36 @@
+.post{
+    margin-top: 20px;
+    margin-left: 60px;
+}
+.butn{
+    width: 140px;
+    color: rgb(233, 251, 253);
+    background-color: rgb(8, 8, 65);
+}
+.comments-head{
+    background-color: white;
+    width: 350px;
+    margin: 10px;
+    margin-left: 800px;
+    border-radius: 10px;
+}
+.comments table,tr,td{
+    padding:5px;
+    border: none;
+    width: 300px;
+}
+.explore{
+    background-color: black;
+     padding: 10px;
+}
+#email{
+    text-align: center;
+    font-size: small;
+    font-weight: bolder;
+}
+#time
+{
+    font-size: 10px;
+    color: rgb(68, 68, 225);
+    text-align: right;
+}
