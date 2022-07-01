@@ -3,7 +3,7 @@ const express=require("express");
 const ejs=require("ejs");
 const bodyparser=require("body-parser");
 const upload=require("express-fileupload");
-const Vonage = require('@vonage/server-sdk')
+const Vonage = require('@vonage/server-sdk');
 
 const vonage = new Vonage({
   apiKey: "a5f53058",
@@ -97,13 +97,99 @@ app.post('/Employer_Login',encoder,function(req,res){
         res.end();
     })
 });
+app.get('/Worker_Login',function(req,res){
+    res.render('Worker_Login');
+});
+
+app.post('/Worker_Login',encoder,function(req,res){
+    var email=req.body.email;
+    var password=req.body.password;
+    connection.query('SELECT * FROM worker WHERE email= ? and password = ?',[email,password],function(error,results,field){
+        if(results.length>0){
+            
+            res.redirect('/Home2');
+            cur_user=results[0].email;
+            phone_no=results[0].phone_no;
+            address=results[0].Address;
+            console.log(address);
+        }
+        else
+        {
+            //console.log("in");
+            res.redirect('/Worker_Registration');
+        }
+        res.end();
+    })
+});
+
+app.get('/Worker_Registration',function(req,res){
+    res.render('Worker_Registration');
+});
+
+app.post('/Worker_Registration',encoder,function(req,res)
+{
+    console.log(req.body.name);
+    var name=req.body.name;
+    var address=req.body.address;
+    var email=req.body.email;
+    var phone_no=req.body.phone_no
+    var p1=req.body.password1;
+    var p2=req.body.password2;
+    if(p1===p2)
+    {
+        let sql="insert into worker (Name,Address,email,phone_no,password) values(?,?,?,?,?)";
+        let query=connection.query(sql,[name,address,email,phone_no,p1],(error,rows)=>{
+        if(error) throw error;
+        console.log("inserted");
+        res.redirect('/Worker_Login');
+    });
+    }
+    else{
+        console.log("Passwords are not same");
+        res.redirect('/Worker_Registration');
+    }
+    
+});
+
+app.get('/Home2',function(req,res){
+    res.render('Home2');
+});
+
+app.get('/Post2',function(req,res){
+    let sql="select * from login_comment";
+    let query=connection.query(sql,(error,rows)=>{
+        if(error) throw error;
+        console.log(rows);
+        res.render('Post2',{
+         data:rows
+        });  
+        
+     })
+});
+
+
 
 app.get('/Explore',function(req,res){
     res.render('Explore');
 });
 
+app.get('/Schemes',function(req,res){
+    res.render('Schemes');
+});
+
 app.get('/My_Profile',function(req,res){
     let sql="select * from employer where email=?  ";
+    let query=connection.query(sql,[cur_user],(error,rows)=>{
+        if(error) throw error;
+        console.log(rows);
+        res.render('My_Profile',{
+         data:rows
+        });  
+        
+     })
+});
+app.get('/My_Profile2',function(req,res){
+    let sql="select * from worker where email=?  ";
     let query=connection.query(sql,[cur_user],(error,rows)=>{
         if(error) throw error;
         console.log(rows);
@@ -119,6 +205,8 @@ app.get('/My_Profile',function(req,res){
 app.get('/Employer_Registration',function(req,res){
     res.render('Employer_Registration');
 });
+
+
 
 
 app.get('/Records',encoder,function(req,res){

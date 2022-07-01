@@ -1,0 +1,28 @@
+.header1{
+    padding: 10px;
+    height: 600px;
+    width: 300px;
+    list-style: none;
+}
+.list-item{
+    padding: 10px;
+    color: black;
+}
+.list-item :hover{
+    color: white;
+    background-color: black;
+    }
+.header2{
+    display: block;
+    padding: 20px;
+    
+}
+.main{
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+}
+.list-item{
+list-style: none;
+color: black;
+}
