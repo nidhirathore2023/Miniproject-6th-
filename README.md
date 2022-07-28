@@ -20,21 +20,27 @@ This Project is developed with a objective to utilize this National Database  to
 # 📌  Interface Demo (with Screenshots)
 
 **Login Page**
+
 ![Employee data](images/lb0.png?raw=true )
 
 **Home Page**
+
 ![Employee data](images/lb1.png?raw=true )
 
 **Language Translator**
+
 ![Employee data](images/lb2.png?raw=true )
 
 **Explore Section**
+
 ![Employee data](images/lb3.png?raw=true )
 
 **Post Section**
+
 ![Employee data](images/lb4.png?raw=true )
 
 **Chat Section **
+
 ![Employee data](images/lb5.png?raw=true )
 # 📌 Features 
 
