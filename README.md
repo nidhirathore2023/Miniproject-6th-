@@ -39,7 +39,7 @@ This Project is developed with a objective to utilize this National Database  to
 
 ![Employee data](images/lb4.png?raw=true )
 
-**Chat Section **
+**Chat Section**
 
 ![Employee data](images/lb5.png?raw=true )
 # 📌 Features 
