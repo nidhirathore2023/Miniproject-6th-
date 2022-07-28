@@ -4,7 +4,10 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
   }
-  
+  .required{
+    color: red;
+    padding-left: 300px;
+  }
   body {
     background: #1177ca;
     font-family: 'Rubik', sans-serif;

@@ -4,6 +4,8 @@ const ejs=require("ejs");
 const bodyparser=require("body-parser");
 const upload=require("express-fileupload");
 const Vonage = require('@vonage/server-sdk');
+  
+
 
 const vonage = new Vonage({
   apiKey: "a5f53058",
@@ -12,6 +14,10 @@ const vonage = new Vonage({
 
 const encoder=bodyparser.urlencoded();
 const app=express();
+
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+//var io=require('socket.io')(app);
 
 app.use(upload());
 app.set('view engine','ejs');
@@ -38,6 +44,8 @@ app.get('/Employer_Registration',function(req,res){
     res.render('Employer_Registration');
 });
 
+var worker_user;
+var employer_user;
 app.post('/Employer_Registration',encoder,function(req,res)
 {
     console.log(req.body.name);
@@ -88,7 +96,9 @@ app.post('/Employer_Login',encoder,function(req,res){
             cur_user=results[0].email;
             phone_no=results[0].phone_no;
             address=results[0].Address;
-            console.log(address);
+            //console.log(address);
+            employer_user=results[0].Name;
+            //console.log(employer_user);
         }
         else
         {
@@ -111,7 +121,9 @@ app.post('/Worker_Login',encoder,function(req,res){
             cur_user=results[0].email;
             phone_no=results[0].phone_no;
             address=results[0].Address;
-            console.log(address);
+            //console.log(address);
+            worker_user=results[0].Name;
+            //console.log(worker_user);
         }
         else
         {
@@ -124,6 +136,10 @@ app.post('/Worker_Login',encoder,function(req,res){
 
 app.get('/Worker_Registration',function(req,res){
     res.render('Worker_Registration');
+});
+
+app.get('/Chat',function(req,res){
+    res.render('Chat');
 });
 
 app.post('/Worker_Registration',encoder,function(req,res)
@@ -270,7 +286,7 @@ app.get('/Successfully_Send',function(req,res){
     const to = "919027908651"
     const text = msg 
     console.log(msg);
-  /* vonage.message.sendSms(from, to, text, (err, responseData) => {
+   vonage.message.sendSms(from, to, text, (err, responseData) => {
         if (err) {
             console.log(err);
         } else {
@@ -287,7 +303,7 @@ app.get('/Successfully_Send',function(req,res){
             }
         }
     })
-*/
+
    // console.log(skills)
    // console.log(location)
    /* */
@@ -309,4 +325,17 @@ app.get('/history',function(req,res){
 
 
 
-app.listen(3000,()=>console.log("running"));
+server.listen(3000,()=>console.log("running"));
+io.on('connection', function(socket){
+    //console.log('a user connected');
+    socket.on('joined', function(data) {
+        //console.log(data);
+    });
+
+    socket.on('chat message', function(msg){
+        //console.log('message: ' + msg);
+       // socket.emit('response message', msg + '  from server');
+        socket.broadcast.emit('response message', msg );
+    });
+   
+});
