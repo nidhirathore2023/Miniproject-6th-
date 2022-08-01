@@ -21,7 +21,7 @@ This Project is developed with a objective to utilize this National Database  to
 
 **Login Page**
 
-![Employee data](images/lb0.png?raw=true )
+![](images/lb0.png?raw=true )
 
 **Home Page**
 
